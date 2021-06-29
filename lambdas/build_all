@@ -1,0 +1,11 @@
+#!/bin/bash
+
+arch=x86_64-unknown-linux-musl
+
+cargo build --release --target $arch
+
+for lambda in "recipes" "upload";
+do
+    mkdir -p ./out/$lambda
+    cp ./target/$arch/release/$lambda ./bootstrap && zip ./out/$lambda/lambda.zip ./bootstrap && rm ./bootstrap
+done

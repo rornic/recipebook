@@ -1,0 +1,4 @@
+#!/bin/bash
+
+LAMBDA=$1
+aws lambda update-function-code --function-name recipebook-$LAMBDA --zip-file fileb://out/$LAMBDA/lambda.zip
