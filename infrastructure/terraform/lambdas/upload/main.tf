@@ -7,7 +7,7 @@ resource "aws_lambda_permission" "apigw_lambda" {
 }
 
 resource "aws_lambda_function" "upload" {
-  filename      = "../../recipebook-lambdas/out/upload/lambda.zip"
+  filename      = "../lambdas/out/upload/lambda.zip"
   function_name = "${var.name}-upload"
   role          = aws_iam_role.iam_for_lambda.arn
   handler       = "doesnt.matter"

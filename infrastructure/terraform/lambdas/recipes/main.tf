@@ -7,7 +7,7 @@ resource "aws_lambda_permission" "apigw_lambda" {
 }
 
 resource "aws_lambda_function" "recipes" {
-  filename      = "../../recipebook-lambdas/out/recipes/lambda.zip"
+  filename      = "../lambdas/out/recipes/lambda.zip"
   function_name = "${var.name}-recipes"
   role          = aws_iam_role.iam_for_lambda.arn
   handler       = "doesnt.matter"
