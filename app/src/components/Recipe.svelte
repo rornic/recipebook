@@ -111,7 +111,7 @@
 			<Col md="1" />
 			<Col md="4">
 				<div class="ml-6">
-					<DraggableList let:i bind:items={recipe.method}>
+					<DraggableList onReorder={update} let:i bind:items={recipe.method}>
 						<h6>Step {i + 1}</h6>
 						<p style="padding-left:0em;">
 							<TextArea change={update} placeholder="step" bind:value={recipe.method[i]} />

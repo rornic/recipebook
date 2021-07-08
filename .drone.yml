@@ -1,0 +1,29 @@
+---
+kind: pipeline
+type: docker
+name: lambdas
+
+steps:
+- name: build
+  image: rust
+  commands:
+  - cd infrastructure/lambdas
+  - cargo build
+- name: test
+  image: rust
+  commands:
+  - cd infrastructure/lambdas
+  - cargo test
+
+---
+kind: pipeline
+type: docker
+name: app
+
+steps:
+- name: build
+  image: node
+  commands:
+  - cd app
+  - npm ci
+  - npm run build

@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { Icon } from 'sveltestrap/src';
 	export let items: any[];
+	export let onReorder;
 
 	let dragging = -1;
 
@@ -12,6 +13,9 @@
 
 	const stopDrag = () => {
 		dragging = -1;
+		if (dragging > -1) {
+			onReorder();
+		}
 	};
 
 	const move = (evt) => {
@@ -41,7 +45,7 @@
 			const transform = style.transform === 'none' ? '' : style.transform;
 
 			return {
-				duration: 200,
+				duration: 100,
 				easing: quintOut,
 				css: (t) => `
 					transform: ${transform} scale(${t});

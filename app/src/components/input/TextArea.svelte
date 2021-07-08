@@ -2,7 +2,7 @@
 	import { onMount } from 'svelte';
 	import Input from 'sveltestrap/src/Input.svelte';
 
-	let className;
+	let className = '';
 	export { className as class };
 
 	export let value: string;
